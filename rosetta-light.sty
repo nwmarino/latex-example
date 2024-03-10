@@ -1,0 +1,64 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{rosetta-light}
+
+\RequirePackage{color}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{color}
+\RequirePackage[twoside]{fancyhdr}
+\RequirePackage{parskip}
+\RequirePackage[margin=0.75in]{geometry}
+\RequirePackage[colorlinks=true]{hyperref}
+\RequirePackage{fourier-orns}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bb}[1]{\textbf{#1}}
+
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{p_outline}{RGB}{112,125,141}
+\definecolor{p_box}{RGB}{235,235,235}
+\definecolor{e_outline}{RGB}{80,84,100}
+\definecolor{e_box}{RGB}{245,245,245}
+
+\def\skippar{5pt}
+\def\indentpar{0pt}
+
+\renewcommand{\headrule}{
+    \color{black}\hrulefill\raisebox{-2.1pt}%
+    {\footnotesize\quad\leafleft\textxswdown\leafright\quad}\hrulefill}
+
+\renewcommand{\footrule}{
+    \color{black}\hrulefill\raisebox{-2.1pt}%
+    {\footnotesize\quad Page \thepage\quad}\hrulefill\normalsize}
+
+\color{black}
+\pagecolor{white}
+\fancyhf{}
+\fancyhead[L]{\color{black}\small\course}
+\fancyhead[R]{\color{black}\small\name}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newenvironment{e}[1]
+    {\begin{tcolorbox}[enhanced,title=#1,colframe=e_outline,colback=e_box,%
+        attach boxed title to top center={yshift=-2mm},coltitle=black,%
+        boxed title style={size=small,colback=e_box,colframe=e_outline,arc=0mm},%
+        boxsep=2.5mm,arc=0mm,size=fbox,top=2mm,left=2mm,right=2mm,bottom=2mm]%
+        \color{black}}
+    {\end{tcolorbox}}
+
+\newenvironment{pb}
+    {\begin{tcolorbox}[colframe=p_outline,colback=p_box,%
+        boxsep=2.5mm,arc=0mm,size=fbox,top=2mm,left=2mm,right=2mm,bottom=2mm]%
+        \color{black}}
+    {\end{tcolorbox}}
+
+\newenvironment{pf}{\begin{proof}$ $\vspace{2mm}}{\end{proof}}
